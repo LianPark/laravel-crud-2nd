@@ -1,0 +1,19 @@
+{
+    "name": "lianpark/board",
+    "description": "Laravel Baord Project",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lianpark\\Board\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lian Park",
+            "email": "woori01@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
