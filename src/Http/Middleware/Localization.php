@@ -17,6 +17,9 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
+        $lang = $_COOKIE['locale'];
+        session()->put('locale', $lang);
+
         $locale_cookie = $request->cookie('locale');
         if (isset($locale_cookie)) {
             App::setLocale($locale_cookie);

@@ -2,8 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use Lianpark\Board\Http\Controllers\BoardController;
+use Illuminate\Http\Request;
 
 Route::get('/test', [BoardController::class, 'test']);
+
+
+Route::get('/lang', function (Request $request) {
+  $locale = $request->input('lang');
+  app()->setLocale($locale);
+  session()->put('locale', $locale);
+
+  $locale_cookie = cookie('locale', $locale, 565000);
+  return redirect()->back()->cookie($locale_cookie);
+})->name('lang.change');
 
 
 Route::group(['middleware' => ['web']], function () {
